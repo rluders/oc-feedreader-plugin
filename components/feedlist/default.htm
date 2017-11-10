@@ -1,0 +1,16 @@
+{% for item in feedList.items %}
+    <div class="last-news">
+        <div class="last-news-item">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="{{ item.url }}" target="_blank">
+                        {{ item.title }}
+                    </a>
+                </div>
+                <div class="panel-body">
+                    {{ str_limit(item.content|raw, 140, '...')  }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

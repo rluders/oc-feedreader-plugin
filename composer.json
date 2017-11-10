@@ -1,0 +1,22 @@
+{
+    "name": "rluders/feedreader",
+    "type": "october-plugin",
+    "description": "Feed Reader plugin for OctoberCMS",
+    "keywords": ["october", "cms", "octobercms", "feed", "reader", "widget", "wordpress"],
+    "homepage": "http://www.luders.com.br",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ricardo Lüders",
+            "email": "ricardo@luders.com.br",
+            "homepage": "http://www.luders.com.br",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "composer/installers": "~1.0",
+        "miniflux/picofeed": "@stable"
+    },
+    "minimum-stability": "dev"
+}
