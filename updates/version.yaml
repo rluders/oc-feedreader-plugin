@@ -2,3 +2,6 @@
 1.0.1:
   - Fix component multiple instance
   - Add information to README.md
+1.0.2:
+  - Adding CHANGELOG.md
+  - Replace the |raw filter for |striptags to fix the broken HTML content
