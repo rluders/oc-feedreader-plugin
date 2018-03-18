@@ -1,16 +1,24 @@
-{% for item in __SELF__.items %}
-    <div class="last-news">
-        <div class="last-news-item">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <a href="{{ item.url }}" target="_blank">
-                        {{ item.title }}
-                    </a>
-                </div>
-                <div class="panel-body">
-                    {{ str_limit(item.content|striptags, 140, '...')  }}
+{% if __SELF__.items %}
+
+    {% for item in __SELF__.items %}
+        <div class="last-news">
+            <div class="last-news-item">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="{{ item.url }}" target="_blank">
+                            {{ item.title }}
+                        </a>
+                    </div>
+                    <div class="panel-body">
+                        {{ str_limit(item.content|striptags, 140, '...')  }}
+                    </div>
                 </div>
             </div>
         </div>
+    {% endfor %}
+
+{% else %}
+    <div class="last-news">
+        <class="alert alert-info">Unable to load the feed items.</class>
     </div>
-{% endfor %}
+{% endif %}

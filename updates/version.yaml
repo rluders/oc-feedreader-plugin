@@ -5,3 +5,6 @@
 1.0.2:
   - Adding CHANGELOG.md
   - Replace the |raw filter for |striptags to fix the broken HTML content
+1.0.3:
+  - Testing if the given URL is responding
+  - The component is now able to handle with the non-responding URL
