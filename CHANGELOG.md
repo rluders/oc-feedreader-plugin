@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.0.3 (2018-03-18)
+
+### Fixed
+- Testing if the given URL is responding
+
+### Changed
+- The component is now able to handle with the non-responding URL
+
 ## v1.0.2 (2018-01-16)
 
 ### Added

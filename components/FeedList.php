@@ -84,6 +84,10 @@ class FeedList extends ComponentBase
                 return json_decode(Cache::get($cacheKey));
             }
 
+            if (!$this->isUrlResponding($url)) {
+                return false;
+            }
+
             $reader = new FeedReader;
             $resource = $reader->download($url);
 
@@ -105,11 +109,31 @@ class FeedList extends ComponentBase
 
             return $feed;
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             // Do nothing
         }
 
         return null;
+    }
+
+    /**
+     * Check if the given URL is responding
+     *
+     * @param string $url The url address to be tested
+     * 
+     * @return boolean
+     */
+    protected function isUrlResponding($url)
+    {
+        try {
+            if (file_get_contents($url)) {
+                return true;
+            }
+        } catch (\Exception $e) {
+            // Do nothing
+        }
+
+        return false;
     }
 
     /**
@@ -129,6 +153,10 @@ class FeedList extends ComponentBase
      */
     public function items()
     {
-        return $this->loadedFeed->items;
+        if ($this->loadedFeed) {
+            return $this->loadedFeed->items;
+        }
+
+        return null;
     }
 }
