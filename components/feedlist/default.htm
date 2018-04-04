@@ -11,7 +11,8 @@
                     </div>
                     <div class="panel-body">
                         {{ str_limit(item.content|striptags, 140, '...')  }}
-                    </div>
+                        <p>Posted at: {{ item.publishedDate|date('Y-m-d') }}</p>
+                    </div>                    
                 </div>
             </div>
         </div>

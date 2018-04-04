@@ -8,3 +8,6 @@
 1.0.3:
   - Testing if the given URL is responding
   - The component is now able to handle with the non-responding URL
+1.0.4:
+  - Fixing cache issues (related to DateTime object)
+  - Adding the publish date example to the component
