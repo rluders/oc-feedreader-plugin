@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.0.4 (2018-04-04)
+
+### Fixed
+- Cache issues (related to DateTime object)
+
+### Added
+- Publish date to the component
+
 ## v1.0.3 (2018-03-18)
 
 ### Fixed

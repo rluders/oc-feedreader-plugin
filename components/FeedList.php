@@ -17,12 +17,22 @@ class FeedList extends ComponentBase
     protected $loadedFeed = null;
 
     /**
+     * Feed Reader
+     *
+     * @var null|\PicoFeed\Reader\Reader
+     */
+    protected $reader = null;
+
+    /**
      * Executes when the component runs
      *
      * @return void
      */
     public function onRun()
     {
+        // Initialize the reader
+        $this->reader = new FeedReader;
+
         $url = $this->property('feedURL');
         $this->loadedFeed = $this->loadFeed($url);
     }
@@ -71,49 +81,72 @@ class FeedList extends ComponentBase
      * Load feeds from given URL
      *
      * @param string $url
-     * @return void
+     * @return mixed
      */
     protected function loadFeed(string $url)
     {
         try {
 
-            // Generate the cache key from URL
-            $cacheKey = md5($url);
-
-            if (Cache::has($cacheKey)) {
-                return json_decode(Cache::get($cacheKey));
-            }
-
-            if (!$this->isUrlResponding($url)) {
-                return false;
-            }
-
-            $reader = new FeedReader;
-            $resource = $reader->download($url);
-
-            $parser = $reader->getParser(
-                $resource->getUrl(),
-                $resource->getContent(),
-                $resource->getEncoding()
-            );
-
-            // Get the feed!
-            $feed = $parser->execute();
-
-            // Storage the feed into the cache
-            Cache::put(
-                $cacheKey,
-                json_encode($feed),
-                Carbon::now()->addMinutes($this->property('expireAt'))
-            );
-
-            return $feed;
+            $resource = $this->getResource($url);
+            if ($resource) {
+                return $this->parseResource($resource);    
+            }            
 
         } catch (\Exception $e) {
             // Do nothing
         }
 
         return null;
+    }
+
+    /**
+     * Get the resource from given URL
+     *
+     * @param string $url
+     * @return mixed
+     */
+    protected function getResource(string $url)
+    {
+        // Generate the cache key from URL
+        $cacheKey = md5($url);
+
+        if (Cache::has($cacheKey)) {
+            return Cache::get($cacheKey);
+        }
+
+        if (!$this->isUrlResponding($url)) {
+            return false;
+        }
+
+        // Download the resource
+        $resource = $this->reader->download($url);
+        
+        // Storage the feed into the cache
+        Cache::put(
+            $cacheKey,
+            $resource,
+            Carbon::now()->addMinutes($this->property('expireAt'))
+        );
+
+        return $resource;
+    }
+
+    /**
+     * Parse the resource and return the feed
+     *
+     * @param mixed $resource
+     * @return Feed
+     */
+    protected function parseResource($resource)
+    {
+        // Parse the resource
+        $parser = $this->reader->getParser(
+            $resource->getUrl(),
+            $resource->getContent(),
+            $resource->getEncoding()
+        );
+
+        return $parser->execute();
     }
 
     /**
