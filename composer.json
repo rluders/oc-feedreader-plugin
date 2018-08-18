@@ -4,7 +4,7 @@
     "description": "Feed Reader plugin for OctoberCMS",
     "keywords": ["october", "cms", "octobercms", "feed", "reader", "widget", "wordpress"],
     "homepage": "http://www.luders.com.br",
-    "license": "MIT",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Ricardo Lüders",
