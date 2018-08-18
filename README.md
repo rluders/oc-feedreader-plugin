@@ -80,8 +80,6 @@ If you choose to overwrite the default partial, the feed item has this following
 *array*<br>
 ``{{ item.categories }}``
 
-# Support
-You can contact me by email at ricardo@luders.com.br or create a support ticket at the [Product support](https://octobercms.com/plugin/support/rluders-feedreader).
+# License
 
-# And more
-Thank you for buying my plugin, and please, don't forget to [review it here](https://octobercms.com/plugin/rluders-feedreader#reviews). You can also find other plugins that I created [here](https://octobercms.com/author/RLuders).
+Check the LICENSE.md file for more information
