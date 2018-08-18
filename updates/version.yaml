@@ -11,3 +11,5 @@
 1.0.4:
   - Fixing cache issues (related to DateTime object)
   - Adding the publish date example to the component
+1.0.5:
+  - License change to GPLv3

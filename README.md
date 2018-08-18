@@ -82,4 +82,4 @@ If you choose to overwrite the default partial, the feed item has this following
 
 # License
 
-Check the LICENSE.md file for more information
+GPLv3
