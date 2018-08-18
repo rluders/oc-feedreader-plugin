@@ -2,6 +2,10 @@
 
 This plugin provides an extensive and simple component that allows you to get a list from any feed and place it into your website. It's excellent if you need to display your WordPress blog posts on your October CMS website.
 
+# Installation
+
+[Go to the plugin page](https://octobercms.com/plugin/rluders-feedreader)
+
 # FAQ
 
 ## Does it support multiple feed components in one page
