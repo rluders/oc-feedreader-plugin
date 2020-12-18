@@ -13,3 +13,5 @@
   - Adding the publish date example to the component
 1.0.5:
   - License change to GPLv3
+1.1.0:
+  - Replacing miniflux/picofeed with p3k/picofeed

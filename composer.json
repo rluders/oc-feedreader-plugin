@@ -1,27 +1,35 @@
 {
-    "name": "rluders/feedreader",
-    "type": "october-plugin",
-    "description": "Feed Reader plugin for OctoberCMS",
-    "keywords": ["october", "cms", "octobercms", "feed", "reader", "widget", "wordpress"],
-    "homepage": "http://www.luders.com.br",
-    "license": "GPL-3.0-or-later",
-    "authors": [
-        {
-            "name": "Ricardo Lüders",
-            "email": "ricardo@luders.com.br",
-            "homepage": "http://www.luders.com.br",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=5.5.9",
-        "composer/installers": "~1.0",
-        "miniflux/picofeed": "@stable"
-    },
-    "autoload": {
-        "psr-4": {
-            "RLuders\\FeedReader\\": ""
-        }
-    },
-    "minimum-stability": "dev"
+  "name": "rluders/feedreader",
+  "type": "october-plugin",
+  "description": "Feed Reader plugin for OctoberCMS",
+  "keywords": [
+    "october",
+    "cms",
+    "octobercms",
+    "feed",
+    "reader",
+    "widget",
+    "wordpress"
+  ],
+  "homepage": "http://www.luders.com.br",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Ricardo Lüders",
+      "email": "ricardo@luders.com.br",
+      "homepage": "http://www.luders.com.br",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "composer/installers": "~1.0",
+    "p3k/picofeed": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "RLuders\\FeedReader\\": ""
+    }
+  },
+  "minimum-stability": "dev"
 }
